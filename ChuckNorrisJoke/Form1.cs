@@ -18,7 +18,7 @@ namespace ChuckNorrisJoke
             InitializeComponent();
         }
 
-        private async void btnJoke_Click(object sender, EventArgs e)
+        private async void BtnJoke_Click(object sender, EventArgs e)
         {
             Joke joke = await ChuckNorrisClient.GetRandomJoke();
 
