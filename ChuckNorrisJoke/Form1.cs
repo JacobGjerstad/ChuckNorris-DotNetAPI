@@ -16,13 +16,25 @@ namespace ChuckNorrisJoke
         public Form1()
         {
             InitializeComponent();
+            GetCategoryList();
         }
 
-        private async void BtnJoke_Click(object sender, EventArgs e)
+        public async void BtnJoke_Click(object sender, EventArgs e)
         {
             Joke joke = await ChuckNorrisClient.GetRandomJoke();
 
             MessageBox.Show(joke.JokeText);
         }
+
+        public async void GetCategoryList()
+        {
+            IEnumerable<string> categories = await ChuckNorrisClient.GetCategories();
+
+            foreach (string c in categories)
+            {
+                cboxCategories.Items.Add(c);
+            }
+        }
+
     }
 }
